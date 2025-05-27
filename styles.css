@@ -1,0 +1,381 @@
+/* === Base Styles === */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #fff0f5, #ffe4e1);
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+audio {
+  display: none;
+}
+
+header {
+  background: url('https://images.unsplash.com/photo-1514986888952-8cd320577b64') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 5px #000;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 120px;
+  background: url('your-temple-arch.png') center top no-repeat;
+  background-size: contain;
+  z-index: 1;
+}
+
+header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  margin: 0;
+  z-index: 2;
+}
+
+header p {
+  font-size: 1.5rem;
+  z-index: 2;
+}
+
+section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.details {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.details h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #c2185b;
+}
+
+.details p {
+  margin: 10px 0;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  background: #c2185b;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: #a3154d;
+}
+
+.countdown h3 {
+  margin: 20px 0 10px;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+#timer {
+  font-size: 1.2rem;
+  color: #c2185b;
+  font-weight: bold;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 30px 0;
+  
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center top; /* Adjust as needed */
+  border-radius: 50%;
+  border: 5px solid #c2185b;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+  background: #c2185b;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* === Door Animation === */
+.door-overlay {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background: #2e1a0f;
+  overflow: hidden;
+}
+
+.door {
+  width: 50%;
+  height: 100%;
+  background: #3b220c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 3s ease-in-out;
+  box-shadow: inset 0 0 20px #000;
+}
+
+.door img {
+  width: 180px;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.door-overlay.open .left-door {
+  transform: translateX(-100%);
+}
+
+.door-overlay.open .right-door {
+  transform: translateX(100%);
+}
+
+.door-overlay.fade-out {
+  animation: fadeOut 2s ease 2s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* === Invitation Text === */
+.invitation-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: #FFB800;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.invitation-text.fade-in {
+  opacity: 1;
+}
+
+.invitation-text.fade-out {
+  opacity: 0;
+}
+
+.invitation-text h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.invitation-text h2 {
+  font-size: 2rem;
+  color: #fff8dc;
+  margin-top: 10px;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .door img {
+    width: 120px;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .profile-pic {
+    width: 140px;
+    height: 140px;
+  }
+
+  .details {
+    padding: 20px;
+  }
+
+  .invitation-text h1 {
+    font-size: 2rem;
+  }
+
+  .invitation-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .wedding-lines {
+    font-size: 1.8rem;
+    padding: 60px 15px;
+  }
+}
+
+/* === Blessing Section === */
+.blessing-invite {
+  color: #8B4513;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  border-top: 3px dashed #830983;
+  border-bottom: 3px dashed #98126c;
+}
+
+.blessing-invite h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #D4AF37;
+  margin-bottom: 20px;
+}
+
+/* === Wedding Line Animation Section === */
+.wedding-lines {
+  
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  color: #c2185b;
+
+  
+  
+  
+  top: 0px;
+  left: 0;
+  right: 0px;
+  bottom: 0;
+  z-index: 0;  /* Make sure it's above other content */
+  overflow: hidden;
+}
+
+.wedding-line {
+  
+  opacity: 0;
+  animation: fadeSlide 4s ease-in-out infinite; /* Repeat animation */
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+/* === Screen Sizes === */
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mobile-first base styles */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff8f0;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #b7791f;
+}
+
+.header p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.content {
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.footer {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Tablets */
+@media (min-width: 600px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .header p,
+  .content,
+  .footer {
+    font-size: 1.2rem;
+  }
+}
+
+
+

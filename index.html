@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gowtham Reddy weds Nandhini - Wedding Invitation</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+<!-- 🎶 Background Wedding Song -->
+<audio id="bgMusic" autoplay loop>
+  <source src="audio/kalyanam-vaibhogam.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+</head>
+<body>
+  <div class="door-overlay">
+    <div class="door left-door">
+      <img src="images/ganesha.jpg" alt="Lord Ganesha">
+    </div>
+    <div class="door right-door">
+      <img src="images/lakshmi.jpg" alt="Goddess Lakshmi">
+    </div>
+    <div class="invitation-text">
+      <h1>Padigapati's Wedding Invitation</h1>
+      <h1> Gowtham Reddy Weds Nandhini Reddy</h1>
+      <h1>We request the honor of your presence</h1>
+    </div>
+  </div>
+
+  <!-- 🎊 Main Content -->
+  <header>
+    <h1 data-aos="fade-down">Gowtham Reddy Weds Nandhini Reddy</h1>
+    <p data-aos="fade-up">Are getting married!</p>
+    <h1> </h1>
+      <!-- 🎉 Line-by-line Animation Section -->
+  <section class="wedding-lines">
+    <div id="weddingLinesContainer"></div>
+  </section>
+  </header>
+
+  <!-- 🎊 Inside Content -->
+  <section>
+    <div class="details" data-aos="fade-up">
+      <h2>You are Cordially Invited</h2>
+      <p><strong>Groom:</strong> Gowtham Reddy</p>
+      <p><strong>Brother:</strong> Ashok Reddy</p>
+      <p><strong>Father:</strong> Padigapati Venkat Reddy</p>
+      <p><strong>Mother:</strong> Anasurya</p>
+      <p><strong>Bride:</strong> Nandhini Reddy</p>
+      <p><strong>Date:</strong> 7th June 2025</p>
+      <p><strong>Venue:</strong> Balaji Function Hall Damarcherla, Nalgonda, Telangana</p>
+
+      <div class="countdown">
+        <h3>Countdown to the Big Day:</h3>
+        <p id="timer"></p>
+      </div>
+
+      <a href="https://maps.app.goo.gl/nQbPgTGi7dM3DMx5A" target="_blank" class="button">View Map</a>
+      <p>✉️ Email: <a href="mailto:gowthamreddypadigapati55@gmail.com">gowthamreddypadigapati55@gmail.com</a></p>
+
+    </div>
+  </section>
+
+  <!-- 👰🤵 Images -->
+  <section>
+    <div class="gallery" data-aos="zoom-in">
+      <img src="images/Left.JPG" alt="Bride" class="profile-pic">
+      <img src="images/Right.JPG" alt="Groom" class="profile-pic">
+    </div>
+  </section>
+
+  <!-- 💌 Invitation Message -->
+  <section class="blessing-invite" data-aos="fade-up">
+    <h2>A Heartful Invitation</h2>
+    <p>
+      Your presence will make the occasion truly special and memorable for all of us. We would be delighted to have you join in our celebration of love, tradition, and togetherness.
+    </p>
+  </section>
+
+  <footer>
+    <p>With Love, Gowtham Reddy & Family</p>
+  </footer>
+
+
+
+  <!-- Wedding Lines Animation Script -->
+  <script>
+    const lines = [
+      "Gowtham Reddy weds Nandhini Reddy",
+      "Haldi: 6th June 2025 - At Home",
+      "Marriage",
+      "Date: 7th June 2025",
+      "Venue: Balaji Function Hall, Damarcherla",
+      "With heartful love we are inviting you",
+      "Please participate and make it extraordinary",
+      "Thank you",
+      "Let's see you on the marriage!"
+    ];
+
+    const container = document.getElementById('weddingLinesContainer');
+
+    lines.forEach((line, index) => {
+      setTimeout(() => {
+        const div = document.createElement('div');
+        div.className = 'wedding-line';
+        div.style.animationDelay = ${index * 1.2}s;
+        div.textContent = line;
+        container.appendChild(div);
+      }, index * 1200);
+    });
+
+    // Music autoplay workaround
+    window.addEventListener('click', function () {
+      const audio = document.getElementById('bgMusic');
+      if (audio.paused) {
+        audio.play();
+      }
+    });
+  </script>
+
+  <!-- AOS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- Custom Scripts -->
+  <script src="invitation.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
